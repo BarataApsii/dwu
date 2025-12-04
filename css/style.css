@@ -69,7 +69,7 @@ html, body {
     margin: 0 !important;
     padding: 0 !important;
     width: 100% !important;
-    height: 100% !important;
+    min-height: 100% !important;
     overflow-x: hidden !important;
 }
 
@@ -81,8 +81,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
     margin: 0 !important;
     padding: 0 !important;
-    background: none !important;
+    background: #009959 !important;
     line-height: 1;
+    min-height: 100vh;
 }
 
 img {
@@ -572,9 +573,21 @@ p {
 }
 
 .navigation .navbar .navbar-nav{}
-.navigation .navbar .navbar-nav li{
-    margin-right: 40px;
+.navigation .navbar .navbar-nav li {
+    margin-right: 20px;
+    padding-right: 20px;
     position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.navigation .navbar .navbar-nav li:not(:last-child)::after {
+    content: '|';
+    color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+    right: -5px;
+    font-size: 18px;
+    pointer-events: none;
 }
 .navigation .navbar .navbar-nav li:last-child{
     margin-right: 0;
@@ -987,17 +1000,30 @@ p {
 /* Header Styles with DWU Branding */
 #header-part {
     position: relative;
-    z-index: 99;
+    z-index: 100;
     background-color: #009959; /* DWU Dark Green */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    top: 40px; /* Make space for the fixed quick links bar */
+    left: 0;
 }
 
 /* Quick Links Bar */
 .quick-links-bar {
-    background-color: transparent; /* Removed solid background */
+    background-color: #006341; /* Darker green background */
     padding: 8px 0;
-    font-size: 14px;
+    font-size: 13px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .quick-links ul {
@@ -1011,6 +1037,20 @@ p {
 .quick-links li {
     position: relative;
     margin: 0 12px;
+    display: flex;
+    align-items: center;
+}
+
+.quick-links li:not(:last-child)::after {
+    content: '|';
+    color: #ffffff; /* Solid white color */
+    margin-left: 12px;
+    margin-right: -8px; /* Compensate for the added space */
+    font-weight: normal;
+    opacity: 0.8; /* Slightly transparent */
+    font-size: 14px; /* Slightly larger */
+    position: relative;
+    top: -1px; /* Fine-tune vertical alignment */
 }
 
 .quick-links a {
@@ -1093,7 +1133,10 @@ p {
 }
 
 .header-logo-support {
-    padding: 15px 0;
+    padding: 40px 0 15px 0;
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
 }
 
 /* University name styling */
