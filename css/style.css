@@ -49,7 +49,7 @@
 ===========================*/
 
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Roboto:300,400,500,700|Playfair+Display:400,400i,700,700i&display=swap');
 
  html, body {
     height: 100%;
@@ -995,7 +995,7 @@ p {
 
 /* Quick Links Bar */
 .quick-links-bar {
-    background-color: #004d2a; /* Darker shade of primary green */
+    background-color: transparent; /* Removed solid background */
     padding: 8px 0;
     font-size: 14px;
 }
@@ -1275,6 +1275,21 @@ p {
 }
 
 
+#header-part {
+    position: relative;
+}
+
+#header-part::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #FFB500;
+    z-index: 10;
+}
+
 #slider-part-3 .slider-feature {
     position: absolute;
     bottom: 0;
@@ -1282,17 +1297,19 @@ p {
     width: 100%;
     z-index: 2;
     padding: 20px 0;
-    background: none; /* Remove the main dark background */
+    background-color: #004d2a; /* Match quicklinks bar background */
+    margin-top: 20px;
+    border-radius: 4px;
 }
 #slider-part-3 .singel-slider-feature {
     display: flex;
     align-items: center;
-    padding: 15px 25px;
-    transition: all 0.3s ease;
-    margin: 8px 15px;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    padding: 12px 18px;
+    margin: 20px 10px 0;
+    background: rgba(0, 100, 0, 0.4);
     border-radius: 5px;
-
+    max-width: 280px;
+    width: 100%;
 }
 .singel-slider-feature .icon{}
 .singel-slider-feature .cont{
@@ -2442,6 +2459,12 @@ p {
 .counter-3 p{
     color: #07294d;
     font-weight: 600;
+}
+
+/* Counter Section Background */
+#counter-part.gray-bg {
+    background-color: rgba(0, 77, 42, 0.9); /* Primary color (#004d2a) with 90% opacity */
+    background-blend-mode: overlay;
 }
 
 
