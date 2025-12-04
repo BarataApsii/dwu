@@ -336,6 +336,50 @@
     <style>
         /* Mobile Menu Styles */
         @media (max-width: 991.98px) {
+            /* Mobile header adjustments */
+            .header-logo-support {
+                padding: 5px 0 !important;
+            }
+            
+            .header-grid {
+                padding: 5px 0 !important;
+                align-items: center;
+            }
+            
+            .header-logo {
+                flex: 1;
+                padding-left: 10px;
+            }
+            
+            .header-logo img {
+                max-height: 45px !important;
+                width: auto;
+            }
+            
+            .header-university {
+                order: 3;
+                flex: 1 0 100%;
+                margin-top: 5px;
+                padding: 0 10px;
+            }
+            
+            .university-name {
+                font-size: 1.3rem !important;
+                margin-bottom: 2px;
+                line-height: 1.2;
+            }
+            
+            .university-slogan {
+                font-size: 0.75rem !important;
+                margin: 0;
+                line-height: 1.2;
+            }
+            
+            /* Hide 30th anniversary badge on mobile */
+            .header-badge {
+                display: none;
+            }
+            
             .navbar-toggler {
                 background: #f5a623;
                 border: none;
@@ -356,11 +400,12 @@
             
             .navbar-collapse {
                 background: #1a1a1a;
-                padding: 15px;
-                margin-top: 10px;
+                padding: 10px 15px;
+                margin: 5px 10px 0;
                 border-radius: 4px;
                 max-height: 80vh;
                 overflow-y: auto;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             }
             
             .navbar-nav {
@@ -411,15 +456,15 @@
             }
             
             .header-logo, .header-university, .header-badge {
-                flex: 0 0 auto;
-                margin: 5px 0;
+                margin: 0;
             }
             
             .header-university {
                 flex: 1 1 100%;
                 order: 3;
                 text-align: center;
-                margin-top: 10px;
+                margin: 5px 0 0;
+                padding: 0 10px;
             }
             
             .quick-links-bar {
