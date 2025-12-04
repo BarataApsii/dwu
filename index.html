@@ -333,6 +333,137 @@
     
     <!--====== Responsive css ======-->
     <link rel="stylesheet" href="css/responsive.css">
+    <style>
+        /* Mobile Menu Styles */
+        @media (max-width: 991.98px) {
+            .navbar-toggler {
+                background: #f5a623;
+                border: none;
+                padding: 8px 12px;
+                border-radius: 4px;
+                outline: none !important;
+                box-shadow: none !important;
+            }
+            
+            .navbar-toggler .icon-bar {
+                display: block;
+                width: 22px;
+                height: 2px;
+                background: #fff;
+                margin: 4px 0;
+                transition: all 0.3s;
+            }
+            
+            .navbar-collapse {
+                background: #1a1a1a;
+                padding: 15px;
+                margin-top: 10px;
+                border-radius: 4px;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            
+            .navbar-nav {
+                margin: 0 !important;
+                padding: 0;
+            }
+            
+            .nav-item {
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .nav-item:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-link {
+                padding: 12px 0 !important;
+                color: #fff !important;
+            }
+            
+            .dropdown-menu {
+                position: static !important;
+                float: none;
+                width: 100%;
+                margin-top: 0;
+                background-color: #2a2a2a;
+                border: none;
+                box-shadow: none;
+                padding-left: 15px;
+            }
+            
+            .dropdown-item {
+                color: #fff;
+                padding: 8px 15px;
+            }
+            
+            .dropdown-item:hover {
+                background-color: #3a3a3a;
+                color: #f5a623;
+            }
+            
+            .header-grid {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 0;
+            }
+            
+            .header-logo, .header-university, .header-badge {
+                flex: 0 0 auto;
+                margin: 5px 0;
+            }
+            
+            .header-university {
+                flex: 1 1 100%;
+                order: 3;
+                text-align: center;
+                margin-top: 10px;
+            }
+            
+            .quick-links-bar {
+                display: none;
+            }
+            
+            .header-logo-support {
+                padding: 5px 0;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .university-name {
+                font-size: 1.5rem;
+            }
+            
+            .university-slogan {
+                font-size: 0.85rem;
+            }
+            
+            .header-badge img {
+                max-height: 70px;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .header-logo {
+                flex: 0 0 70%;
+            }
+            
+            .header-logo img {
+                max-height: 50px;
+            }
+            
+            .header-badge {
+                flex: 0 0 30%;
+                text-align: right;
+            }
+            
+            .header-badge img {
+                max-height: 50px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -387,14 +518,15 @@
                     </div>
 
                         <!-- Mobile menu toggle -->
-                        <div class="d-md-none">
-                        
-                        <!-- Mobile menu toggle -->
-                        <button class="navbar-toggler d-md-none ml-2" type="button"
-                            data-toggle="collapse" data-target="#navbarSupportedContent">
-                            <span class="navbar-toggler-icon" style="background: white;"></span>
-                        </button>
-                    </div>
+                        <div class="d-lg-none">
+                            <button class="navbar-toggler" type="button"
+                                data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
 
                 </div>
             </div>
@@ -1132,6 +1264,27 @@
     <!--====== jquery js ======-->
     <script src="js/vendor/modernizr-3.6.0.min.js"></script>
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script>
+        // Mobile menu toggle functionality
+        $(document).ready(function() {
+            // Close dropdown when clicking outside
+            $(document).on('click', function(event) {
+                if (!$(event.target).closest('.navbar-collapse, .navbar-toggler').length) {
+                    $('.navbar-collapse').collapse('hide');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            $('.navbar-nav>li>a, .dropdown-item').on('click', function() {
+                $('.navbar-collapse').collapse('hide');
+            });
+            
+            // Prevent dropdown from closing when clicking inside it
+            $('.dropdown-menu').on('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
 
     <!--====== Bootstrap js ======-->
     <script src="js/bootstrap.min.js"></script>
