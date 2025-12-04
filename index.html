@@ -533,59 +533,81 @@
     
     <!--====== CATEGORY PART START ======-->
     
-    <section id="category-3" class="category-2-items pt-50 pb-80 gray-bg">
+    <section id="category-3" class="category-2-items pt-50 pb-80 gray-bg" style="position: relative;">
+    <style>
+        #category-3 .items-image {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        #category-3 .items-image::before {
+            display: none !important;
+        }
+        #category-3 .items-cont {
+            display: none !important;
+        }
+        #category-3 .items-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        #category-3 .items-image img {
+            transition: transform 0.3s ease;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        #category-3 .items-image:hover img {
+            transform: scale(1.05);
+        }
+    </style>
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="singel-items text-center mt-30">
                         <div class="items-image">
-                            <img src="images/category/f-4.png" alt="Category">
-                        </div>
-                        <div class="items-cont">
                             <a href="#">
-                                <h5>Faculty Of Medical & Health Sciences</h5>
-                                <span>6 courses</span>
+                                <img src="images/category/f-4.png" alt="Category">
                             </a>
                         </div>
+                            <div class="items-cont">
+                                <a href="#"></a>
+                            </div>
                     </div> <!-- singel items -->
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="singel-items text-center mt-30">
                         <div class="items-image">
-                            <img src="images/category/f-1.png" alt="Category">
-                        </div>
-                        <div class="items-cont">
                             <a href="#">
-                                <h5>Faculty Of Arts & Social Sciences</h5>
-                                <span>7 courses</span>
+                                <img src="images/category/f-1.png" alt="Category">
                             </a>
                         </div>
+                            <div class="items-cont">
+                                <a href="#"></a>
+                            </div>
                     </div> <!-- singel items -->
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="singel-items text-center mt-30">
                         <div class="items-image">
-                            <img src="images/category/f-2.png" alt="Category">
-                        </div>
-                        <div class="items-cont">
                             <a href="#">
-                                <h5>Faculty Of Business & Informatics</h5>
-                                <span>9 courses</span>
+                                <img src="images/category/f-2.png" alt="Category">
                             </a>
                         </div>
+                            <div class="items-cont">
+                                <a href="#"></a>
+                            </div>
                     </div> <!-- singel items -->
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="singel-items text-center mt-30">
                         <div class="items-image">
-                            <img src="images/category/f-3.png" alt="Category">
-                        </div>
-                        <div class="items-cont">
                             <a href="#">
-                                <h5>Faculty Of Education</h5>
-                                <span>7 courses</span>
+                                <img src="images/category/f-3.png" alt="Category">
                             </a>
                         </div>
+                            <div class="items-cont">
+                                <a href="#"></a>
+                            </div>
                     </div> <!-- singel items -->
                 </div>
             </div> <!-- row -->
@@ -607,35 +629,22 @@
                 </div>
             </div> <!-- row -->
             <div class="row course-slied mt-30">
-                <div class="col-lg-4">
+                <div class="col-lg-3 col-md-6">
                     <div class="singel-course-2">
                         <div class="thum">
                             <div class="image">
                                 <img src="images/course/cu-1.jpg" alt="Course">
                             </div>
-                            <div class="price">
-                                <span>Free</span>
-                            </div>
                             <div class="course-teacher">
                                 <div class="thum">
                                     <a href="courses-singel.html"><img src="images/course/teacher/t-1.jpg" alt="teacher"></a>
                                 </div>
-                                <div class="name">
-                                    <a href="#"><h6>Mark anthem</h6></a>
-                                </div>
-                                <div class="review">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
+                                
+                               
                             </div>
                         </div>
                         <div class="cont">
-                            <a href="#"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <a href="#"><h4>Dep. Of Social & Religious Studies</h4></a>
                         </div>
                     </div> <!-- singel course -->
                 </div>
@@ -645,29 +654,15 @@
                             <div class="image">
                                 <img src="images/course/cu-2.jpg" alt="Course">
                             </div>
-                            <div class="price">
-                                <span>Free</span>
-                            </div>
                             <div class="course-teacher">
                                 <div class="thum">
                                     <a href="courses-singel.html"><img src="images/course/teacher/t-2.jpg" alt="teacher"></a>
                                 </div>
-                                <div class="name">
-                                    <a href="#"><h6>Mark anthem</h6></a>
-                                </div>
-                                <div class="review">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="cont">
-                            <a href="#"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <a href="#"><h4>Dep. Of Environmental Health</h4></a>
                         </div>
                     </div> <!-- singel course -->
                 </div>
@@ -684,22 +679,12 @@
                                 <div class="thum">
                                     <a href="courses-singel.html"><img src="images/course/teacher/t-3.jpg" alt="teacher"></a>
                                 </div>
-                                <div class="name">
-                                    <a href="#"><h6>Mark anthem</h6></a>
-                                </div>
-                                <div class="review">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
+                                
                                 </div>
                             </div>
                         </div>
                         <div class="cont">
-                            <a href="#"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <a href="#"><h4>Dep. Of Environmental Health</h4></a>
                         </div>
                     </div> <!-- singel course -->
                 </div>
@@ -709,29 +694,14 @@
                             <div class="image">
                                 <img src="images/course/cu-4.jpg" alt="Course">
                             </div>
-                            <div class="price">
-                                <span>Free</span>
-                            </div>
                             <div class="course-teacher">
                                 <div class="thum">
                                     <a href="courses-singel.html"><img src="images/course/teacher/t-4.jpg" alt="teacher"></a>
                                 </div>
-                                <div class="name">
-                                    <a href="#"><h6>Mark anthem</h6></a>
-                                </div>
-                                <div class="review">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                         <div class="cont">
-                            <a href="#"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <a href="#"><h4>Dep. Of Environmental Health</h4></a>
                         </div>
                     </div> <!-- singel course -->
                 </div>
@@ -741,29 +711,14 @@
                             <div class="image">
                                 <img src="images/course/cu-5.jpg" alt="Course">
                             </div>
-                            <div class="price">
-                                <span>Free</span>
-                            </div>
                             <div class="course-teacher">
                                 <div class="thum">
                                     <a href="courses-singel.html"><img src="images/course/teacher/t-5.jpg" alt="teacher"></a>
                                 </div>
-                                <div class="name">
-                                    <a href="#"><h6>Mark anthem</h6></a>
-                                </div>
-                                <div class="review">
-                                    <ul>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                         <div class="cont">
-                            <a href="#"><h4>Learn basis javascirpt from start for beginner</h4></a>
+                            <a href="#"><h4>Dep. Of Environmental Health</h4></a>
                         </div>
                     </div> <!-- singel course -->
                 </div>

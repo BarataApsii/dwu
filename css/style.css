@@ -385,7 +385,7 @@ p {
 }
 .section-title h2{
     font-size: 48px;
-    color: #000;
+    color: #FFD700; /* Golden yellow color */
     padding-top: 10px;
 }
 
@@ -1816,7 +1816,7 @@ p {
 .singel-course .cont h4{
     font-weight: 600;
     font-size: 24px;
-    color: #000;
+    color: #fff; /* Changed from #000 to #fff for white text */
     padding-top: 15px;
     padding-bottom: 40px;
     -webkit-transition: all 0.4s linear;
@@ -1884,7 +1884,33 @@ p {
     margin-left: 3px;
 }
 
-.course-slied{}
+.course-slied {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.course-slied .slick-list {
+    overflow: visible;
+}
+
+.course-slied .col-lg-4 {
+    padding: 0 15px;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% / 4 * 5)); /* Adjust based on number of items */
+    }
+}
+
+/* Pause on hover */
+.course-slied:hover .slick-track {
+    animation-play-state: paused;
+}
 .course-slied .slick-arrow {
 	position: absolute;
 	top: -125px;
@@ -2638,10 +2664,15 @@ p {
 .singel-course-2 .cont{
     padding-top: 25px;
 }
-.singel-course-2 .cont h4{
+.singel-course-2 .cont h4,
+.singel-course-2 .cont a h4,
+.singel-course-2 .cont a:link h4,
+.singel-course-2 .cont a:visited h4,
+.singel-course-2 .cont a:hover h4,
+.singel-course-2 .cont a:active h4 {
     font-weight: 600;
-    font-weight: 24px;
-    color: #000;
+    font-size: 24px;
+    color: #fff !important; /* Ensures white color is applied */
     -webkit-transition: all 0.4s linear;
     transition: all 0.4s linear;
 }
