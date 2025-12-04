@@ -61,9 +61,22 @@
         }
         /* Remove yellow lines and borders */
         .navigation {
-            border-bottom: none !important;
+            border: none !important;
             box-shadow: none !important;
             background: transparent !important;
+            position: relative;
+        }
+        /* Remove yellow border from navigation bar */
+        .navigation:after {
+            display: none !important;
+        }
+        /* Remove any border from header */
+        #header-part {
+            border: none !important;
+        }
+        /* Ensure no border on sticky header */
+        .sticky-header {
+            border: none !important;
         }
         .navigation:before,
         .navigation:after,
@@ -142,12 +155,82 @@
             background: #00874d !important;
             color: #ffc600 !important;
         }
-        /* Remove any background images that might be causing lines */
+        /* Remove any background images and borders that might be causing lines */
         .navigation,
         .navbar,
         .navbar-collapse,
-        .navbar-nav {
+        .navbar-nav,
+        .header-logo-support,
+        .header-logo-support .container,
+        .header-logo-support .container > .row,
+        .header-logo-support .container > .row > div {
             background-image: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        
+        /* Remove any border from the navigation wrapper */
+        .navbar-expand-lg {
+            border: none !important;
+        }
+        
+        /* Remove any border from the navigation container */
+        .navbar > .container {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        
+        /* Remove any border from the navigation items */
+        .navbar-nav > li {
+            border: none !important;
+        }
+        
+        /* Remove any border from the navigation links */
+        .navbar-nav > li > a {
+            border: none !important;
+            box-shadow: none !important;
+        }
+        
+        /* Remove any border from the header part and the yellow line */
+        #header-part {
+            border: none !important;
+        }
+        #header-part::after,
+        #header-part::before,
+        #header-part *::after,
+        #header-part *::before,
+        .header-logo-support::after,
+        .header-logo-support::before,
+        .header-logo-support *::after,
+        .header-logo-support *::before,
+        .navbar::after,
+        .navbar::before,
+        .navbar *::after,
+        .navbar *::before,
+        .navbar-nav::after,
+        .navbar-nav::before,
+        .navbar-nav *::after,
+        .navbar-nav *::before {
+            display: none !important;
+            content: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: none !important;
+        }
+        
+        /* Remove any potential box shadow or border from header and nav */
+        #header-part,
+        .header-logo-support,
+        .navbar,
+        .navbar-nav,
+        .navbar-collapse,
+        .container,
+        .row,
+        [class*="col-"] {
+            border: none !important;
+            box-shadow: none !important;
+            outline: none !important;
         }
     </style>
     
