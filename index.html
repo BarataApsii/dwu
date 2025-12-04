@@ -39,6 +39,117 @@
     
     <!--====== Style css ======-->
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Custom styles for navigation */
+        .navbar {
+            position: relative;
+            z-index: 1001;
+            border-bottom: none !important;
+        }
+        .dropdown-menu {
+            margin-top: 2px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: none;
+            z-index: 1002;
+            position: relative;
+        }
+        .navbar-nav .nav-link {
+            position: relative;
+            padding-bottom: 15px;
+        }
+        /* Remove yellow lines and borders */
+        .navigation {
+            border-bottom: none !important;
+            box-shadow: none !important;
+            background: transparent !important;
+        }
+        .navigation:before,
+        .navigation:after,
+        .navigation .container:before,
+        .navigation .container:after,
+        .navigation .navbar:before,
+        .navigation .navbar:after,
+        .navigation .navbar-nav:before,
+        .navigation .navbar-nav:after,
+        .navigation .navbar-collapse:before,
+        .navigation .navbar-collapse:after {
+            display: none !important;
+            content: none !important;
+        }
+        .navbar-nav > li > a:before,
+        .navbar-nav > li > a:after,
+        .navbar-nav > li:before,
+        .navbar-nav > li:after {
+            display: none !important;
+            content: none !important;
+        }
+        /* Remove any border from navigation items */
+        .navbar-nav > li {
+            border: none !important;
+        }
+        .navbar-nav > li > a {
+            border: none !important;
+            box-shadow: none !important;
+        }
+        /* Ensure dropdown appears above yellow line */
+        .navigation {
+            position: relative;
+            z-index: 1000 !important;
+        }
+        .navbar-nav > li {
+            position: relative !important;
+        }
+        .navbar-nav > li {
+            position: relative !important;
+        }
+        .navbar-nav .sub-menu {
+            position: absolute !important;
+            top: calc(100% + 15px) !important; /* Increased gap to 15px */
+            left: 0 !important;
+            min-width: 200px !important;
+            background: #009959 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border-top: 3px solid #ffc600 !important;
+            border-radius: 0 0 4px 4px !important;
+            z-index: 1002 !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transition: all 0.3s ease !important;
+            transform: translateY(20px) !important; /* Start even lower for smoother animation */
+        }
+        .navbar-nav > li:hover .sub-menu {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important; /* Smooth transition up */
+        }
+        .sub-menu li {
+            display: block !important;
+            width: 100% !important;
+            text-align: left !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .sub-menu li a {
+            display: block !important;
+            padding: 10px 15px !important;
+            color: #fff !important;
+            border-bottom: 1px solid rgba(255, 198, 0, 0.5) !important;
+        }
+        .sub-menu li a:hover {
+            background: #00874d !important;
+            color: #ffc600 !important;
+        }
+        /* Remove any background images that might be causing lines */
+        .navigation,
+        .navbar,
+        .navbar-collapse,
+        .navbar-nav {
+            background-image: none !important;
+        }
+    </style>
     
     <!--====== Responsive css ======-->
     <link rel="stylesheet" href="css/responsive.css">
@@ -70,33 +181,33 @@
                 </div>
             </div>
             <div class="container">
-                <div class="row align-items-center">
-                    <!-- Logo -->
-                    <div class="col-lg-3 col-md-5 col-7" style="padding-left: 60px;">
+                <div class="header-grid">
+                    <!-- Left Column: Logo -->
+                    <div class="header-logo">
                         <a href="index.html">
-                            <img src="images/logo.png" alt="Logo" style="height: 100px; width: auto;">
+                            <img src="images/logo.png" alt="Logo" class="logo-img">
                         </a>
                     </div>
                     
-                    <!-- University Name -->
-                    <div class="col-lg-5 col-md-7 d-none d-md-flex flex-column justify-content-center">
-                        <div style="display: flex; align-items: center; gap: 15px;">
-                            <h1 style="color: #fff; font-size: 28px; font-weight: 700; margin: 0; line-height: 1.2; text-transform: uppercase; white-space: nowrap;">
+                    <!-- Center Column: University Name & Slogan -->
+                    <div class="header-university">
+                        <div class="university-header">
+                            <h1 class="university-name">
                                 Divine Word University
                             </h1>
+                            <p class="university-slogan">
+                                Living Our Noble Traditions & Christian Principles
+                            </p>
                         </div>
-                        <p style="color: #FFB500; font-size: 16px; margin: 5px 0 0; font-style: italic; font-family: 'Playfair Display', serif; letter-spacing: 0.5px; font-weight: 500;">
-                            Living Our Noble Traditions & Christian Principles
-                        </p>
+                    </div>
+                    
+                    <!-- Right Column: Badge -->
+                    <div class="header-badge">
+                        <img src="images/anniversary.png" alt="Anniversary" class="badge-img">
                     </div>
 
-                    <!-- Anniversary Image -->
-                    <div class="col-lg-2 col-md-12 col-5 d-flex align-items-center justify-content-end">
-                        <img src="images/anniversary.png" alt="Anniversary" style="height: 100px; width: auto;">
-                    </div>
-
-                    <!-- Support + Apply -->
-                    <div class="col-lg-2 col-md-12 col-5 text-right d-flex justify-content-end">
+                        <!-- Mobile menu toggle -->
+                        <div class="d-md-none">
                         
                         <!-- Mobile menu toggle -->
                         <button class="navbar-toggler d-md-none ml-2" type="button"
@@ -109,22 +220,44 @@
             </div>
 
             <!-- Navigation -->
-            <nav class="navbar navbar-expand-lg p-0">
-                <div class="container">
-
+            <div style="position: relative; z-index: 1000;">
+                <nav class="navbar navbar-expand-lg p-0">
+                <div class="container" style="border-bottom: none !important;">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav m-auto d-flex" style="gap: 50px;">
                             <li class="nav-item"><a class="nav-link" href="index.html" style="color: #ffffff !important;">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="about.html" style="color: #ffffff !important;">About Us</a></li>
-                            <li class="nav-item"><a class="nav-link" href="courses.html" style="color: #ffffff !important;">Academics</a></li>
-                            <li class="nav-item"><a class="nav-link" href="events.html" style="color: #ffffff !important;">Administration</a></li>
+                            <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffffff !important;">
+        Academics
+    </a>
+    <div class="dropdown-menu" aria-labelledby="academicsDropdown">
+        <a class="dropdown-item" href="#">Undergraduate</a>
+        <a class="dropdown-item" href="#">Postgraduate</a>
+        <a class="dropdown-item" href="#">Flexible Learning Center (FLC)</a>
+        <a class="dropdown-item" href="#">Research</a>
+    </div>
+</li>
+                            <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffffff !important;">
+        Administration
+    </a>
+    <div class="dropdown-menu" aria-labelledby="adminDropdown">
+        <a class="dropdown-item" href="#">Planning & Development</a>
+        <a class="dropdown-item" href="#">ICT</a>
+        <a class="dropdown-item" href="#">Human Resource Management</a>
+        <a class="dropdown-item" href="#">Finance</a>
+        <a class="dropdown-item" href="#">Marketing</a>
+        <a class="dropdown-item" href="#">Partnership</a>
+    </div>
+</li>
                             <li class="nav-item"><a class="nav-link" href="blog.html" style="color: #ffffff !important;">Campuses</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.html" style="color: #ffffff !important;">Contact Us</a></li>
                         </ul>
                     </div>
-
                 </div>
             </nav>
+            </div> <!-- End of navigation wrapper -->
         </div>
 
     </header>
@@ -215,12 +348,12 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="singel-items text-center mt-30">
                         <div class="items-image">
-                            <img src="images/category/ctg-1.jpg" alt="Category">
+                            <img src="images/category/f-4.png" alt="Category">
                         </div>
                         <div class="items-cont">
                             <a href="#">
-                                <h5>App Design</h5>
-                                <span>24 courses</span>
+                                <h5>Faculty Of Medical & Health Sciences</h5>
+                                <span>6 courses</span>
                             </a>
                         </div>
                     </div> <!-- singel items -->
@@ -228,12 +361,12 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="singel-items text-center mt-30">
                         <div class="items-image">
-                            <img src="images/category/ctg-1.jpg" alt="Category">
+                            <img src="images/category/f-1.png" alt="Category">
                         </div>
                         <div class="items-cont">
                             <a href="#">
-                                <h5>UI/ UX Design</h5>
-                                <span>103 courses</span>
+                                <h5>Faculty Of Arts & Social Sciences</h5>
+                                <span>7 courses</span>
                             </a>
                         </div>
                     </div> <!-- singel items -->
@@ -241,12 +374,12 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="singel-items text-center mt-30">
                         <div class="items-image">
-                            <img src="images/category/ctg-1.jpg" alt="Category">
+                            <img src="images/category/f-2.png" alt="Category">
                         </div>
                         <div class="items-cont">
                             <a href="#">
-                                <h5>App development</h5>
-                                <span>57 courses</span>
+                                <h5>Faculty Of Business & Informatics</h5>
+                                <span>9 courses</span>
                             </a>
                         </div>
                     </div> <!-- singel items -->
@@ -254,12 +387,12 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="singel-items text-center mt-30">
                         <div class="items-image">
-                            <img src="images/category/ctg-1.jpg" alt="Category">
+                            <img src="images/category/f-3.png" alt="Category">
                         </div>
                         <div class="items-cont">
                             <a href="#">
-                                <h5>Photography</h5>
-                                <span>17 courses</span>
+                                <h5>Faculty Of Education</h5>
+                                <span>7 courses</span>
                             </a>
                         </div>
                     </div> <!-- singel items -->

@@ -7,6 +7,175 @@
   Version: 1.1
 */
 
+/* Header Grid Layout */
+.header-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    position: relative;
+    min-height: 95px; /* Slightly reduced header height */
+    margin-top: 0;
+}
+
+/* Remove margin from header-logo-support */
+.header-logo-support {
+    margin: 0;
+    padding: 0;
+}
+
+/* Adjust quick links bar */
+.quick-links-bar {
+    margin: 0;
+    padding: 5px 0;
+    background: #f8f9fa; /* Match your quicklinks background color */
+}
+
+/* Logo Section */
+.header-logo {
+    position: relative;
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 115px; /* Slightly reduced logo size */
+    width: auto;
+    max-width: none;
+    position: absolute;
+    bottom: -5px; /* Slightly adjust position */
+    left: 20px;
+    z-index: 10;
+    margin-top: -15px; /* Move the logo up a bit more */
+}
+
+/* University Name & Slogan Section */
+.header-university {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    margin-top: -15px; /* Move the university name up a bit more */
+}
+
+.university-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.university-name {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+}
+
+.university-slogan {
+    color: #FFB500;
+    font-size: 16px;
+    margin: 5px 0 0;
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+}
+
+/* Badge Section */
+.header-badge {
+    position: relative;
+    height: 100%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: -15px; /* Move the badge up a bit more */
+}
+
+.badge-img {
+    height: 115px; /* Match logo size */
+    width: auto;
+    max-width: none;
+    position: absolute;
+    bottom: -5px; /* Slightly adjust position */
+    right: 20px;
+    z-index: 10;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .header-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "logo badge"
+            "university university";
+        gap: 15px;
+    }
+    
+    .header-logo { grid-area: logo; }
+    .header-university { grid-area: university; }
+    .header-badge { 
+        grid-area: badge;
+        justify-content: flex-end;
+    }
+}
+
+@media (max-width: 768px) {
+    .university-name {
+        font-size: 24px;
+    }
+    
+    .university-slogan {
+        font-size: 14px;
+    }
+    
+    .logo-img {
+        height: 100px; /* Smaller on mobile */
+        bottom: -10px; /* Adjusted position */
+    }
+    .badge-img {
+        height: 100px; /* Match mobile logo size */
+        bottom: -10px; /* Match mobile logo position */
+    }
+}
+
+@media (max-width: 576px) {
+    .header-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "logo"
+            "university"
+            "badge";
+        text-align: center;
+    }
+    
+    .header-logo,
+    .header-badge {
+        justify-content: center;
+    }
+    
+    .university-name {
+        font-size: 20px;
+        white-space: normal;
+    }
+    
+    .university-slogan {
+        font-size: 14px;
+    }
+}
+
 /* CSS Index 
 -----------------------------------
 1. Theme default
@@ -612,22 +781,26 @@ p {
     color: #ffc600 !important;
 }
 
-.navigation .navbar .navbar-nav li .sub-menu{
+.navigation .navbar .navbar-nav li .sub-menu {
     position: absolute;
-    top: 110%;
+    top: 100% !important; /* Align with the bottom of the nav item */
     left: 0;
     background-color: #009959;
     width: 200px;
     opacity: 0;
     visibility: hidden;
-    -webkit-transition: all 0.4s linear;
-    transition: all 0.4s linear;
-    z-index: 99;
+    transition: all 0.2s ease;
+    z-index: 1002 !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-top: 3px solid #ffc600; /* Match the yellow line */
+    border-radius: 0 0 4px 4px;
+    transform: translateY(3px); /* Push down by the height of the yellow line */
 }
-.navigation .navbar .navbar-nav li:hover .sub-menu{
+.navigation .navbar .navbar-nav li:hover .sub-menu {
     opacity: 1;
     visibility: visible;
-    top: 100%;
+    top: 100% !important;
+    transform: translateY(0); /* Remove the transform on hover */
 }
 
 .navigation .navbar .navbar-nav li .sub-menu li{
@@ -856,10 +1029,11 @@ p {
     width: 100%;
     margin: 0 !important;
     padding: 0 !important;
+    border-top: 3px solid #ffc600;
     background: none !important;
-    overflow: hidden; /* This will cut off any content that overflows */
+    overflow: hidden;
     height: 80vh;
-    z-index: 1;
+    z-index: 1; /* Keep below navigation */
 }
 #slider-part-3 .container,
 #slider-part-3 .slider-feature {
@@ -1988,9 +2162,10 @@ p {
 ======================================================*/
 
 #testimonial{}
-#testimonial .section-title{
+#testimonial .section-title {
     position: relative;
-    z-index: 5;
+    z-index: 1000;
+    background: #9d1010; /* Match the navigation background */
 }
 #testimonial .section-title h5,
 #testimonial .section-title h2{
